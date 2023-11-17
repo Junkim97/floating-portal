@@ -1,3 +1,4 @@
+import { Float } from "@react-three/drei";
 import { useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
@@ -17,9 +18,17 @@ export function FloatingRocks() {
 
   return (
     <>
-      <primitive object={rock2.scene} position={[-20.5, -7, -19]} />
-      <primitive object={rock1.scene} position={[-5, 10, -33]} />
-      <primitive object={rock3.scene} position={[20, 3.5, -9]} />
+      <Float speed={2} rotationIntensity={1} floatIntensity={0.6}>
+        <primitive object={rock1.scene} position={[-20.5, -7, -19]} />
+      </Float>
+
+      <Float speed={2} rotationIntensity={0.6} floatIntensity={0.6}>
+        <primitive object={rock2.scene} position={[-6, 10, -33]} />
+      </Float>
+
+      <Float speed={2} rotationIntensity={0.6} floatIntensity={0.6}>
+        <primitive object={rock3.scene} position={[20, 3.5, -9]} />
+      </Float>
     </>
   );
 }
